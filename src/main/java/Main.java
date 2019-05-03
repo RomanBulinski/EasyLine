@@ -6,10 +6,10 @@ public class Main {
 //    public static BigInteger easyLine(int n) {
     public static BigInteger easyLine(int n) {
 
-        Integer[][] setArr = new Integer[n][];
+        Integer[][] setArr = new Integer[n+1][];
         int i =0;
 
-        while(i<n){
+        while(i<=n){
             Integer[] tempArr = new Integer[i+1];
             tempArr[0] = 1;
             for(int k=1; k<tempArr.length-1; k++ ){
