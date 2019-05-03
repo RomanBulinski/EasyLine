@@ -3,39 +3,31 @@ import java.util.Arrays;
 
 public class Main {
 
-//    public static BigInteger easyLine(int n) {
+
     public static BigInteger easyLine(int n) {
 
-        Integer[][] setArr = new Integer[n+1][];
+        BigInteger[][] setArr = new BigInteger[n+1][];
         int i =0;
 
         while(i<=n){
-            Integer[] tempArr = new Integer[i+1];
-            tempArr[0] = 1;
+            BigInteger[] tempArr = new BigInteger[i+1];
+            tempArr[0] = new BigInteger("1");
             for(int k=1; k<tempArr.length-1; k++ ){
-                tempArr[k]= setArr[i-1][k-1] + setArr[i-1][k];
+                BigInteger tempBigInt = (setArr[i-1][k-1].add( setArr[i-1][k]));
+                tempArr[k]= tempBigInt;
             }
-            tempArr[tempArr.length-1] = 1;
+            tempArr[tempArr.length-1] = new BigInteger("1");
             setArr[i] = tempArr;
             i++;
         }
 
-//        Arrays.stream(setArr)
-//                .forEach( g -> Arrays.stream(g).forEach( h -> System.out.println(h)));
+        BigInteger tem = new BigInteger("0");
+        BigInteger[] lastArr = setArr[setArr.length-1];
+         for( BigInteger big : lastArr ){
+             tem = tem.add(big.pow(2));
+         }
 
-
-        Integer[] lastArr = setArr[setArr.length-1];
-
-        Arrays.stream(lastArr).forEach( b-> System.out.print(b+" "));
-        System.out.println();
-        Arrays.stream(lastArr).forEach( b-> System.out.print(b*b+" "));
-        System.out.println();
-
-        Integer result = Arrays.stream(lastArr)
-                .mapToInt(x -> x*x)
-                .sum();
-
-        return new BigInteger( String.valueOf(result) );
+        return new BigInteger( String.valueOf(tem) );
     }
 
 

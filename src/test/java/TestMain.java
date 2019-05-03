@@ -24,9 +24,22 @@ public class TestMain {
     }
 
 
+    @Test
+    public void test3() {
+        assertEquals( new BigInteger("2333606220"), Main.easyLine(17));
+    }
+
+    @Test
+    public void test4() {
+        assertEquals( new BigInteger("35345263800"), Main.easyLine(19));
+    }
 
 
-//        testing(Easyline.easyLine(17), new BigInteger("2333606220"));
-//        testing(Easyline.easyLine(19), new BigInteger("35345263800"));
+
+//    @Test
+//    public void test50() {
+//        assertEquals( new BigInteger("100891344545564193334812497256"), Main.easyLine(50));
+//    }
+
 
 }
